@@ -12,6 +12,31 @@
 # define YYOPTIM 1
 # define YYLMAX 200
 
+
+/**** UGLY MISPORT ****/
+
+char *mbsinvalid(const char *s)
+{
+    int len;
+    int rc;
+    
+    if (s == (char *)NULL)
+	return ((char *)NULL);
+
+    while (*s) {
+	if ((rc = mblen(s, MB_CUR_MAX)) == -1)
+	    return(s);
+	s += rc;
+    }
+
+    return ((char *)NULL);
+}
+
+
+/**********************/
+
+
+
 #ifdef __cplusplus
 int yylook(void);
 extern "C" int yywrap(void), yyless(int), yyreject(void);
