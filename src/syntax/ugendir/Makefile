@@ -22,10 +22,10 @@ id.o		: id.c id.h
 #		ugen tree.ugn
 tree.o		: tree.c tree.h id.h
 		$(CC) -c tree.c
-y.tab.h		: syntax.y
-		$(YACC) -d syntax.y
-y.tab.c		: syntax.y tree.h
-		$(YACC) -d syntax.y
+#y.tab.h		: syntax.y
+#		$(YACC) -d syntax.y
+#y.tab.c		: syntax.y tree.h
+#		$(YACC) -d syntax.y
 yyerror.o	: yyerror.c
 		$(CC) -c yyerror.c
 
