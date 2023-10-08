@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <varargs.h>
+#include <stdarg.h>
 #include "include.h"
 #include "listgen.h"
 
@@ -96,13 +96,11 @@ int *va;
 
 /*VARARGS0*/
 void
-error(va_alist)
-va_dcl
+error(const char *fmt, ...)
 {
     va_list args;
-    char *fmt;
 
-    va_start(args);
+    va_start(args, fmt);
     fmt = va_arg(args, char *);
     fprintf(stderr, "%s: Error ", progname);
     vfprintf(stderr, fmt, args);
@@ -113,14 +111,12 @@ va_dcl
 
 /*VARARGS0*/
 void
-errmsg(va_alist)
-va_dcl
+errmsg(const char *fmt, ...)
 {
     va_list args;
-    char *fmt;
     extern int interactive;
 
-    va_start(args);
+    va_start(args, fmt);
     fmt = va_arg(args, char *);
 
     if (interactive) {
@@ -134,14 +130,12 @@ va_dcl
 
 /*VARARGS0*/
 void
-normmsg(va_alist)
-va_dcl
+normmsg(const char *fmt, ...)
 {
     va_list args;
-    char *fmt;
     extern int interactive;
 
-    va_start(args);
+    va_start(args, fmt);
     fmt = va_arg(args, char *);
 
     if (interactive) {

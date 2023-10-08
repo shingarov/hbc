@@ -5,9 +5,9 @@
 #endif
 
 /*void error PROTO((char *));*/
-void error();
+void error(const char*, ...);
 /*void errmsg PROTO((char *, char *));*/
-void errmsg();
+void errmsg(const char*, ...);
 void yyerror PROTO((char *));
 void syntaxerror PROTO((void));
 void obsolete PROTO((char *));
