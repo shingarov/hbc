@@ -3,7 +3,7 @@
 #include <sys/ioctl.h>
 
 #if defined(SYSV) || defined(SOLARIS) || defined(HPUX) || defined(IRIX) || defined (linux)
-#include <sys/termio.h>
+#include <sys/termios.h>
 #else /* SYSV */
 #if defined(__NetBSD__) || defined(__FreeBSD__)
 #include <termios.h>
